@@ -1,13 +1,14 @@
 using Domain.Entities;
 using Infrastructure.DTOs.Author;
+using Infrastructure.DTOs.Book;
 
 namespace Infrastructure.Interface;
 
 public interface IAuthorService
 {
-     Task<List<Author>> GetAllAsync();
+     Task<List<AuthorDto>> GetAllAsync();
 
-    Task<Author?> GetByIdAsync(int id);
+    Task<AuthorDto> GetByIdAsync(int id);
 
     Task<int> CreateAsync(CreateAuthorDto dto);
 

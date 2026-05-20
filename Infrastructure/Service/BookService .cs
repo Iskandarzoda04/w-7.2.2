@@ -101,25 +101,46 @@ public class BookService : IBookService
         return false;
     }
 }
-    public async Task<List<Book>> GetAllAsync()
+public async Task<List<BookDto>> GetAllAsync()
+{
+    try
     {
-       try
-    {
-        return await _context.Books.ToListAsync();
+        var books = await _context.Books.ToListAsync();
+
+        return books.Select(b => new BookDto
+        {
+            Id = b.Id,
+            Title = b.Title,
+            Year = b.Year,
+            ISBN = b.ISBN,
+            Pages = b.Pages,
+            Description = b.Description
+        }).ToList();
     }
     catch (Exception ex)
     {
-        _logger.LogError(ex, "Error while getting authors");
-        return new List<Book
-        >();
+        _logger.LogError(ex, "Error while getting books");
+        return new List<BookDto>();
     }
-    }
+}
 
-    public async Task<Book?> GetByIdAsync(int id)
+public async Task<BookDto?> GetByIdAsync(int id)
+{
+    var book = await _context.Books.FindAsync(id);
+
+    if (book == null)
+        return null;
+
+    return new BookDto
     {
-        return await _context.Books.FindAsync(id);
-    }
-
+        Id = book.Id,
+        Title = book.Title,
+        Year = book.Year,
+        ISBN = book.ISBN,
+        Pages = book.Pages,
+        Description = book.Description
+    };
+}
   public async Task<bool> UpdateAsync(int id, UpdateBookDto dto)
 {
     try

@@ -17,14 +17,14 @@ public class BookController : ControllerBase
 
    
     [HttpGet]
-    public async Task<List<Book>> GetAll()
+    public async Task<List<BookDto>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
    
     [HttpGet("{id}")]
-    public async Task<Book?> GetById(int id)
+    public async Task<BookDto> GetById(int id)
     {
         return await _service.GetByIdAsync(id);
     }

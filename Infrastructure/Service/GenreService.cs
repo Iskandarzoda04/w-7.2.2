@@ -83,25 +83,43 @@ public class GenreService : IGenreService
     }
 
     
-    public async Task<List<Genre>> GetAllAsync()
+public async Task<List<GenreDto>> GetAllAsync()
+{
+    try
     {
-        try
-        {
-            return await _context.Genres.ToListAsync();
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error while getting genres");
-            return new List<Genre>();
-        }
-    }
+        var genres = await _context.Genres.ToListAsync();
 
-    
-    public async Task<Genre?> GetByIdAsync(int id)
+        return genres.Select(g => new GenreDto
+        {
+            Id = g.Id,
+            Name = g.Name,
+            Description = g.Description,
+            IsFiction = g.IsFiction,
+            Popularity = g.Popularity
+        }).ToList();
+    }
+    catch (Exception ex)
     {
-        return await _context.Genres.FindAsync(id);
+        _logger.LogError(ex, "Error while getting genres");
+        return new List<GenreDto>();
     }
+}
+public async Task<GenreDto?> GetByIdAsync(int id)
+{
+    var genre = await _context.Genres.FindAsync(id);
 
+    if (genre == null)
+        return null;
+
+    return new GenreDto
+    {
+        Id = genre.Id,
+        Name = genre.Name,
+        Description = genre.Description,
+        IsFiction = genre.IsFiction,
+        Popularity = genre.Popularity
+    };
+}
    
     public async Task<bool> UpdateAsync(int id, UpdateGenreDto dto)
     {

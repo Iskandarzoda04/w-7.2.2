@@ -5,6 +5,7 @@ using Infrastructure.Persistence.DataContext;
 using Microsoft.Extensions.Logging;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.DTOs.Book;
 
 namespace Infrastructure.Service;
 
@@ -81,22 +82,43 @@ public async Task<bool> DeleteAsync(int id)
         return false;
     }
 }
-public async Task<List<Author>> GetAllAsync()
+public async Task<List<AuthorDto>> GetAllAsync()
 {
     try
     {
-        return await _context.Authors.ToListAsync();
+        var authors = await _context.Authors.ToListAsync();
+
+        return authors.Select(a => new AuthorDto
+        {
+            Id = a.Id,
+            Name = a.Name,
+            BirthYear = a.BirthYear,
+            Country = a.Country,
+            Biography = a.Biography
+        }).ToList();
     }
     catch (Exception ex)
     {
         _logger.LogError(ex, "Error while getting authors");
-        return new List<Author>();
+        return new List<AuthorDto>();
     }
-} 
-    public async Task<Author?> GetByIdAsync(int id)
+}
+  public async Task<AuthorDto?> GetByIdAsync(int id)
+{
+    var author = await _context.Authors.FindAsync(id);
+
+    if (author == null)
+        return null;
+
+    return new AuthorDto
     {
-     return await _context.Authors.FindAsync(id);
-     }
+        Id = author.Id,
+        Name = author.Name,
+        BirthYear = author.BirthYear,
+        Country = author.Country,
+        Biography = author.Biography
+    };
+}
     
     
 

@@ -18,14 +18,14 @@ public class AuthorController : ControllerBase
 
 
     [HttpGet]
-    public async Task<List<Author>> GetAll()
+    public async Task<List<AuthorDto>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
     
     [HttpGet("{id}")]
-    public async Task<Author?> GetById(int id)
+    public async Task<AuthorDto> GetById(int id)
     {
         return await _service.GetByIdAsync(id);
     }

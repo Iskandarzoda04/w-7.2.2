@@ -18,14 +18,14 @@ public class GenreController : ControllerBase
 
 
     [HttpGet]
-    public async Task<List<Genre>> GetAll()
+    public async Task<List<GenreDto>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
 
     [HttpGet("{id}")]
-    public async Task<Genre?> GetById(int id)
+    public async Task<GenreDto> GetById(int id)
     {
         return await _service.GetByIdAsync(id);
     }

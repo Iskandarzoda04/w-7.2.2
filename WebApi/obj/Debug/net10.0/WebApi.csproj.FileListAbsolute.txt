@@ -136,3 +136,4 @@ C:\Users\user\Desktop\Week  7\Day 2\Relation\webApi\bin\Debug\net10.0\Serilog.Se
 C:\Users\user\Desktop\Week  7\Day 2\Relation\webApi\bin\Debug\net10.0\Serilog.Sinks.Console.dll
 C:\Users\user\Desktop\Week  7\Day 2\Relation\webApi\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
 C:\Users\user\Desktop\Week  7\Day 2\Relation\webApi\bin\Debug\net10.0\Serilog.Sinks.File.dll
+C:\Users\user\Desktop\Week  7\Day 2\Relation\WebApi\obj\Debug\net10.0\WebApi.sourcelink.json

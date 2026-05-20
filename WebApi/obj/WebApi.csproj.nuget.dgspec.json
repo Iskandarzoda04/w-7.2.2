@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\webApi\\WebApi.csproj": {}
+    "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
     "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\Domain\\Domain.csproj": {
@@ -700,14 +700,14 @@
         }
       }
     },
-    "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\webApi\\WebApi.csproj": {
+    "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\webApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\webApi\\WebApi.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\webApi\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Week  7\\Day 2\\Relation\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

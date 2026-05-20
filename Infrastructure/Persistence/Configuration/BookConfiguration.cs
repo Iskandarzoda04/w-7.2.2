@@ -19,12 +19,12 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
             .HasMaxLength(13);
 
          builder.Property(book => book.Pages)
-         .IsRequired()
-         .HasMaxLength(1000);
+         .IsRequired();
+
 
          builder.Property(book => book.Description)
-         .IsRequired()
-         .HasMaxLength(1000);
+         .IsRequired();
+        
 
 
               builder.HasOne(b => b.Author)

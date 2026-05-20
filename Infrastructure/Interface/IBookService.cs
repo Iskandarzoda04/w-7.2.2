@@ -6,9 +6,9 @@ using Infrastructure.DTOs.Book;
 
 public interface IBookService
 {
-   Task<List<Book>> GetAllAsync();
+   Task<List<BookDto>> GetAllAsync();
 
-    Task<Book?> GetByIdAsync(int id);
+    Task<BookDto> GetByIdAsync(int id);
 
     Task<int> CreateAsync(CreateBookDto dto);
 

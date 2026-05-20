@@ -5,9 +5,9 @@ namespace Infrastructure.Interface;
 
 public interface IGenreService
 {
-       Task<List<Genre>> GetAllAsync();
+       Task<List<GenreDto>> GetAllAsync();
 
-    Task<Genre> GetByIdAsync(int id);
+    Task<GenreDto> GetByIdAsync(int id);
 
     Task<int> CreateAsync(CreateGenreDto dto);
 
