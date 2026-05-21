@@ -1,51 +1,56 @@
-using Infrastructure.DTOs.Book;
-using Infrastructure.Interface;
+using Infrastructure.DTOs.User;
+using Infrastructure.Interfaces;\\
 using Microsoft.AspNetCore.Mvc;
-using Domain.Entities;
+
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BookController : ControllerBase
+public class UserController 
 {
-    private readonly IBookService _service;
+    private readonly IUserservice _service;
 
-    public BookController(IBookService service)
+    public UserController(IUserservice service)
     {
         _service = service;
     }
 
-   
+
     [HttpGet]
-    public async Task<List<BookDto>> GetAll()
+    public async Task<List<UserDto>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
-   
+ 
     [HttpGet("{id}")]
-    public async Task<BookDto> GetById(int id)
+    public async Task<UserDto?> GetById(int id)
     {
         return await _service.GetByIdAsync(id);
     }
 
    
     [HttpPost]
-    public async Task<int> Create(CreateBookDto dto)
+    public async Task<int> Create(CreateUserDto dto)
     {
         return await _service.CreateAsync(dto);
     }
 
-    
+   
     [HttpPut("{id}")]
-    public async Task<bool> Update(int id, UpdateBookDto dto)
+    public async Task<bool> Update(int id, UpdateUserDto dto)
     {
         return await _service.UpdateAsync(id, dto);
     }
 
+  
     [HttpDelete("{id}")]
     public async Task<bool> Delete(int id)
     {
         return await _service.DeleteAsync(id);
     }
+}
+
+public class UpdateUserDto
+{
 }
